@@ -1,4 +1,4 @@
-package Utilities;
+package GameProjectOOP;
 
 import java.util.Scanner;
 
@@ -54,9 +54,7 @@ public class Game {
                     break;
                 case 5:
                     break;
-                default:
-                    location = new SafeHouse(character);
-                    break;
+
             }
 
 

@@ -1,4 +1,4 @@
-package Utilities;
+package GameProjectOOP;
 
 public class Obstacle {
 

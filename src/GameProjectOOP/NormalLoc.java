@@ -1,4 +1,4 @@
-package Utilities;
+package GameProjectOOP;
 
 public abstract class NormalLoc extends  Location{
 

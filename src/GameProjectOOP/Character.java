@@ -1,4 +1,4 @@
-package Utilities;
+package GameProjectOOP;
 
 import java.util.Scanner;
 
@@ -97,9 +97,7 @@ public class Character {
                 initPlayer("Piupiu", 24, 8, 5);
 
                 break;
-            default:
-                initPlayer("Yaren", 21, 5, 15);
-                break;
+
 
         }
         System.out.println("Your Character:\nName:" + getCharacterName() + "\nHealthy:" + getHealthy() + "\nDamage:" + getDamage() + "\nMoney:" + getMoney());
