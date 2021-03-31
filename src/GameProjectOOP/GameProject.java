@@ -48,26 +48,38 @@ public class GameProject {
             switch (placeNum) {
                 case 1:
                     location = new SafeHouse(character);
-                    location.getLocation();
+
                     break;
                 case 2:
                     location = new Cave(character);
-                    location.getLocation();
+
 
                     break;
                 case 3:
                     location = new Forest(character);
-                    location.getLocation();
+
                     break;
                 case 4:
                     location = new River(character);
-                    location.getLocation();
+
                     break;
                 case 5:
                     location = new ToolStore(character);
-                    location.getLocation();
+                    break;
+                default:
+                    location = new SafeHouse(character);
                     break;
 
+            }
+            if (location.getClass().getName().equals("SafeHouse")) {
+                if (character.getInv().isFirewood() && character.getInv().isWater() && character.getInv().isFood()) {
+                    System.out.println("Congratulations ! You won the game !");
+                    break;
+                }
+            }
+            if (!location.getLocation()) {
+                System.out.println("Game has ended !");
+                break;
             }
 
 

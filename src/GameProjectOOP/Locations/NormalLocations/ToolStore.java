@@ -26,13 +26,13 @@ public class ToolStore extends NormalLoc {
                 buyArmor(itemId);
                 break;
             case 3:
-                System.out.println("Tool Store is shutting down !");
+                System.out.println("Tool Store is closing !");
                 break;
             default:
                 break;
 
         }
-        return false;
+        return true;
     }
 
     public int armorMenu() {

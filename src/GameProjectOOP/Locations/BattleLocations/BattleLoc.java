@@ -40,8 +40,9 @@ public abstract class BattleLoc extends Location {
                 }
                 return true;
 
-            } else {
-                System.out.println("You died  !");
+            }
+            if(character.getHealthy()<=0){
+                System.out.println("You are died !");
                 return false;
             }
 
@@ -76,7 +77,7 @@ public abstract class BattleLoc extends Location {
 
 
                 } else {
-                    break;
+                    return  false;
                 }
 
             }
