@@ -1,4 +1,6 @@
-package GameProjectOOP;
+package GameProjectOOP.Characters;
+
+import GameProjectOOP.Inventory.Inventory;
 
 import java.util.Scanner;
 
@@ -6,17 +8,8 @@ public class Character {
     private int id;
     private String name, characterName;
     private int damage;
-    private int healthy;
-
-    public int getReHealthy() {
-        return reHealthy;
-    }
-
-    public void setReHealthy(int reHealthy) {
-        this.reHealthy = reHealthy;
-    }
-
-    private int reHealthy;
+    private int health;
+    private int reHealth;
     private int money;
     private Inventory inv;
     Scanner scan = new Scanner(System.in);
@@ -24,8 +17,19 @@ public class Character {
     public Character(String name) {
 
         this.name = name;
+        this.inv = new Inventory();
 
     }
+
+
+    public int getReHealthy() {
+        return reHealth;
+    }
+
+    public void setReHealthy(int reHealthy) {
+        this.reHealth = reHealthy;
+    }
+
 
     public int getId() {
         return id;
@@ -60,11 +64,11 @@ public class Character {
     }
 
     public int getHealthy() {
-        return healthy;
+        return health;
     }
 
     public void setHealthy(int healthy) {
-        this.healthy = healthy;
+        this.health = healthy;
     }
 
     public int getMoney() {
@@ -83,25 +87,30 @@ public class Character {
         this.inv = inv;
     }
 
+    public int getTotalDamage() {
+        return getDamage() + getInv().getDamage();
+    }
+
     public void selectCharacter() {
 
 
         switch (chaMenu()) {
             case 1:
-                initPlayer("Yaren", 21, 5, 15);
+                initPlayer("Yaren", 5, 21, 15);
                 break;
             case 2:
                 initPlayer("Muharrem", 7, 18, 20);
                 break;
             case 3:
-                initPlayer("Piupiu", 24, 8, 5);
+                initPlayer("Piupiu", 8, 24, 5);
 
                 break;
 
 
         }
+        System.out.println("---------------------------------------");
         System.out.println("Your Character:\nName:" + getCharacterName() + "\nHealthy:" + getHealthy() + "\nDamage:" + getDamage() + "\nMoney:" + getMoney());
-        System.out.println();
+
     }
 
     public void initPlayer(String name, int damage, int healthy, int money) {
@@ -117,16 +126,31 @@ public class Character {
         System.out.println("1- Genus: Yaren \t Damage: 5 \t Healthy:21 \t Money:15");
         System.out.println("2- Genus: Muharrem \t Damage: 7 \t Healthy:18 \t Money:20");
         System.out.println("3- Genus: Piupiu \t Damage: 8 \t Healthy:24 \t Money:5");
-
-        System.out.print("Your option:");
+        System.out.println("---------------------------------------");
+        System.out.println("Your option:");
         int chaId = scan.nextInt();
-        System.out.println();
         while (chaId < 1 || chaId > 3) {
             System.out.print("Invalid character id !\nPlease enter an valid character id:");
             chaId = scan.nextInt();
 
         }
         return chaId;
+    }
+
+    public void getCharacterStats() {
+        System.out.println("---------------------------------------");
+        System.out.println("Character Stats:");
+        System.out.println("Name :" + getCharacterName());
+        System.out.println("Health : " + getHealthy());
+        System.out.println("Damage : " + getTotalDamage());
+        System.out.println("Money : " + getMoney());
+        if (getInv().getWeaponName() != null) {
+            System.out.println("Weapon Name : " + getInv().getWeaponName());
+
+        }
+        if (getInv().getArmorName() != null) {
+            System.out.println("Armor Name : " + getInv().getArmorName());
+        }
     }
 }
 

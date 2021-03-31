@@ -1,4 +1,6 @@
-package GameProjectOOP;
+package GameProjectOOP.Locations.NormalLocations;
+
+import GameProjectOOP.Characters.Character;
 
 public class SafeHouse extends NormalLoc {
 
@@ -9,7 +11,7 @@ public class SafeHouse extends NormalLoc {
 
     public boolean getLocation() {
         character.setHealthy(character.getReHealthy());
-        System.out.println("Your healthy has  filled !");
+        System.out.println("Your healthy has  filled! Health :" + character.getHealthy());
         return true;
     }
 }
